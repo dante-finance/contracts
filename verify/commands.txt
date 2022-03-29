@@ -1,0 +1,2 @@
+
+npx hardhat verify --constructor-args .\verify\dante-genesis-reward-pool-args.js --network mainnet 0x875d9A67E9730DFad8C0A26Ed76D69b351227258

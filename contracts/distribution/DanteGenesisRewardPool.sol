@@ -64,15 +64,14 @@ contract DanteGenesisRewardPool {
     address public daoFundAddress;
 
     // TESTNET
-    uint256 public dantePerSecond = 5.55555 ether; // 20000 DANTE / (24h * 60min * 60s)
-    uint256 public runningTime = 1 hours;
-    uint256 public constant TOTAL_REWARDS = 20000 ether;
+    //uint256 public dantePerSecond = 5.55555 ether; // 20000 DANTE / (24h * 60min * 60s)
+    //uint256 public runningTime = 1 hours;
+    //uint256 public constant TOTAL_REWARDS = 20000 ether;
     // END TESTNET
 
     // MAINNET
-    // uint256 public dantePerSecond = 0.11574 ether; // 20000 DANTE / (24h * 60min * 60s)
-    // uint256 public runningTime = 2 days; // 2 days
-    // uint256 public constant TOTAL_REWARDS = 20000 ether;
+    uint256 public dantePerSecond = 0.11575 ether; // 20002 DANTE / (48h * 60min * 60s)
+    uint256 public runningTime = 2 days; // 2 days
     // END MAINNET
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
