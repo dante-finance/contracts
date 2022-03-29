@@ -273,7 +273,9 @@ contract Treasury is ContractGuard {
         premiumPercent = 7000;
 
         // First 28 epochs with 4.5% expansion
-        bootstrapEpochs = 28;
+        //bootstrapEpochs = 28;   // LIVE
+        bootstrapEpochs = 4;   // LIVE
+
         bootstrapSupplyExpansionPercent = 450;
 
         // set seigniorageSaved to it's balance

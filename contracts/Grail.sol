@@ -26,7 +26,7 @@ contract Grail is ERC20Burnable, Operator {
     uint256 public constant COMMUNITY_FUND_POOL_ALLOCATION = 5500 ether;
     uint256 public constant DEV_FUND_POOL_ALLOCATION = 5000 ether;
 
-    uint256 public constant VESTING_DURATION = 365 days;
+    uint256 public constant VESTING_DURATION = 180 days;
     uint256 public startTime;
     uint256 public endTime;
 
@@ -42,8 +42,7 @@ contract Grail is ERC20Burnable, Operator {
     bool public rewardPoolDistributed = false;
 
     constructor(uint256 _startTime, address _communityFund, address _devFund) ERC20("GRAIL", "GRAIL") {
-        _mint(msg.sender, 1 ether); // mint 1 TOMB Share for initial pools deployment
-        _mint(msg.sender, 10 ether); // FOR TESTING ONLY -- DELETE AFTER
+        _mint(msg.sender, 1 ether); // mint 1 Share for initial pools deployment
 
         startTime = _startTime;
         endTime = startTime + VESTING_DURATION;

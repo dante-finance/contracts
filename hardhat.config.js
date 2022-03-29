@@ -19,7 +19,7 @@ module.exports = {
   solidity: {
     compilers: [
       {
-        version: "0.8.0",
+        version: "0.8.1",
         settings: {
           optimizer: {
             enabled: true,
@@ -43,6 +43,14 @@ module.exports = {
       blockGasLimit: 10000000,
       allowUnlimitedContractSize: true
     },
+    mainnet: {
+      url: secret.url,
+      accounts: [secret.key],
+      gas: "auto",
+      gasPrice: "auto",
+      gasMultiplier: 1,
+      allowUnlimitedContractSize: false
+    }
   },
   etherscan: {
     apiKey: "JSMN6FNUZR4X6VWI1GHZBXY1EA5BDRPV1R"

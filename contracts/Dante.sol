@@ -23,7 +23,7 @@ contract Dante is ERC20Burnable, Operator {
     using SafeMath for uint256;
 
     // Initial distribution for the first 24h genesis pools
-    uint256 public constant INITIAL_GENESIS_POOL_DISTRIBUTION = 20000 ether;
+    uint256 public constant INITIAL_GENESIS_POOL_DISTRIBUTION = 20002 ether;
 
     // Have the rewards been distributed to the pools
     bool public rewardPoolDistributed = false;
@@ -34,7 +34,6 @@ contract Dante is ERC20Burnable, Operator {
     constructor() ERC20("DANTE", "DANTE") {
         // used to create DANTE/TOMB liquidity
         _mint(msg.sender, 1000 ether);
-        _mint(msg.sender, 10 ether); // FOR TESTING ONLY -- DELETE AFTER
     }
 
     /**
