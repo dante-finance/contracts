@@ -55,7 +55,7 @@ async function main() {
     await danteGenesisRewardPool.add("3750",__liveUSDC,"true","0");
     await danteGenesisRewardPool.add("1500",__liveTomb,"true","0");
     await danteGenesisRewardPool.add("10000",__danteTombLpAddress,"true","0");
-    await danteGenesisRewardPool.add("1005",__liveFame,"true","0");
+    await danteGenesisRewardPool.add("1010",__liveFame,"true","0");
 
     console.log("dante genesis reward pool address:", danteGenesisRewardPool.address);
 
