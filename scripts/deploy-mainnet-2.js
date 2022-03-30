@@ -55,22 +55,15 @@ async function main() {
     await danteGenesisRewardPool.add("3750",__liveUSDC,"true","0");
     await danteGenesisRewardPool.add("1500",__liveTomb,"true","0");
     await danteGenesisRewardPool.add("10000",__danteTombLpAddress,"true","0");
-    await danteGenesisRewardPool.add("1001",__liveFame,"true","0");
+    await danteGenesisRewardPool.add("1005",__liveFame,"true","0");
 
     console.log("dante genesis reward pool address:", danteGenesisRewardPool.address);
 
-    //const danteGenesisRewardPool = await ethers.getContractAt ("DanteGenesisRewardPool", "0x875d9A67E9730DFad8C0A26Ed76D69b351227258");
-    //const treasury = await ethers.getContractAt ("Treasury", "0xDaFd26A4F5F946e06a7e002931f0081dE8f54aAd");
-
-    //>>>>>>>>>>>>>>>>> START FROM HERE
     console.log("deploying eden...");
     const Eden = await ethers.getContractFactory("Eden");
     const eden = await Eden.deploy();
         
     console.log("eden address:", eden.address);
-
-    // start grail reward pool after genesis ends
-    //const grailRewardStartTime = (await danteGenesisRewardPool.poolEndTime()).toString();
 
     console.log("deploying grail...");
     console.log("cstr args:");
@@ -95,17 +88,6 @@ async function main() {
     console.log("distributing rewards to grail reward pool...");
     await grail.distributeReward(grailRewardPool.address);
         
-
-    //const grail = await ethers.getContractAt ("Grail", "0x7d2Ff5CCa24081cd7A5b2502b46F80B766E9bCB7");
-    //const grailRewardPool = await ethers.getContractAt ("GrailRewardPool", "0x42B6f465a721262746370F1523f41290be37a67D");
-
-    // start treasury 1 hour after grail reward pool
-    //const treasuryStartTime = (Number(await grailRewardPool.poolStartTime()) + 60 * 60).toString();
-    //console.log("treasury start time: " + treasuryStartTime);
-
-    //const eden = await ethers.getContractAt ("Eden", "0x183077f975c5B0924694cD70E236BD418B42726e");
-
-    // >>>>>>>>>>>>>>>>> START FROM HERE
     // deploy oracle
     // needs liquidity in LP before deployment
     console.log("deploying oracle...");
@@ -118,9 +100,6 @@ async function main() {
 
     console.log("oracle address", oracle.address);
 
-    //const oracle = await ethers.getContractAt ("Oracle", "0xbBEFA5E734E1166a2ffB32AC54E932d9f91C37FF");
-
-    // >>>>>>>>>>>>>>> START HERE
     console.log("initializing treasury...");
     await treasury.initialize (__dante,__dbond,grail.address,oracle.address,eden.address,__edenStartTime);
 
@@ -142,14 +121,7 @@ async function main() {
 
     // create $GRAIL/$FTM LP
     console.log("creating $GRAIL/$FTM LP...");
-    await UniswapV2Factory.createPair(grail.address,__liveFtm);    
-
-    // create DANTE/GRAIL LP
-    //console.log("creating $GRAIL/$DANTE LP...");
-    //await UniswapV2Factory.createPair(
-    //    __dante,
-    //    grail.address);  
-
+    await UniswapV2Factory.createPair(__liveFtm,grail.address);    
 
     console.log("done.");
     

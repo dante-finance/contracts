@@ -70,7 +70,7 @@ contract DanteGenesisRewardPool {
     // END TESTNET
 
     // MAINNET
-    uint256 public dantePerSecond = 0.11575 ether; // 20002 DANTE / (48h * 60min * 60s)
+    uint256 public dantePerSecond = 0.115769 ether; // 20005 DANTE / (48h * 60min * 60s)
     uint256 public runningTime = 2 days; // 2 days
     // END MAINNET
 

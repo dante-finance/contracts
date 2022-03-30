@@ -35,7 +35,7 @@ async function main() {
     console.log("creating dante/tomb LP...");
     const UniswapV2Factory = await ethers.getContractAt("IUniswapV2Factory", __factory);
 
-    await UniswapV2Factory.createPair(dante.address,__tomb);
+    await UniswapV2Factory.createPair(__tomb,dante.address);
 
     console.log("done.");
 }
